@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scan Report - 27. März 2026 | Pickover Puzzle Search</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #1a1a2e;
+            --secondary: #16213e;
+            --accent: #0f3460;
+            --danger: #e94560;
+            --success: #00d9ff;
+            --warning: #ffc107;
+            --text: #eaeaea;
+            --text-muted: #a0a0a0;
+            --card-bg: rgba(255, 255, 255, 0.05);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-muted);
+            text-decoration: none;
+            margin-bottom: 2rem;
+            transition: color 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--success);
+        }
+
+        header {
+            padding: 2rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        .scan-id {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        .scan-meta {
+            display: flex;
+            gap: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        .scan-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .summary-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .summary-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .summary-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .summary-number.clean { color: var(--success); }
+        .summary-number.suspicious { color: var(--warning); }
+        .summary-number.confirmed { color: var(--danger); }
+
+        .summary-label {
+            color: var(--text-muted);
+            font-size: 0.85rem;
+        }
+
+        .section {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .article-list {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .article-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1.25rem;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            border-left: 4px solid var(--success);
+        }
+
+        .article-item.suspicious {
+            border-left-color: var(--warning);
+        }
+
+        .article-item.confirmed {
+            border-left-color: var(--danger);
+        }
+
+        .article-status-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            flex-shrink: 0;
+        }
+
+        .article-status-icon.clean {
+            background: rgba(0, 217, 255, 0.1);
+        }
+
+        .article-status-icon.suspicious {
+            background: rgba(255, 193, 7, 0.1);
+        }
+
+        .article-status-icon.confirmed {
+            background: rgba(233, 69, 96, 0.1);
+        }
+
+        .article-info {
+            flex: 1;
+        }
+
+        .article-domain {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.25rem;
+        }
+
+        .article-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .article-time {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+        }
+
+        .article-status {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+
+        .article-status.clean {
+            background: rgba(0, 217, 255, 0.1);
+            color: var(--success);
+        }
+
+        .article-status.suspicious {
+            background: rgba(255, 193, 7, 0.1);
+            color: var(--warning);
+        }
+
+        .article-status.confirmed {
+            background: rgba(233, 69, 96, 0.1);
+            color: var(--danger);
+        }
+
+        .indicators {
+            margin-top: 0.75rem;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        .findings {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            padding: 1.5rem;
+        }
+
+        .finding-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .finding-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .finding-item:first-child {
+            padding-top: 0;
+        }
+
+        .finding-icon {
+            width: 24px;
+            height: 24px;
+            background: rgba(255, 193, 7, 0.1);
+            color: var(--warning);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .finding-content h4 {
+            font-weight: 600;
+            margin-bottom: 0.25rem;
+        }
+
+        .finding-content p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .scan-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .article-item {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">
+            ← Zurück zur Übersicht
+        </a>
+
+        <header>
+            <div class="scan-id">Scan #001</div>
+            <h1>Scan Report - 27. März 2026</h1>
+            <div class="scan-meta">
+                <span>🕐 21:17 Uhr</span>
+                <span>📄 6 Artikel analysiert</span>
+                <span>🌐 4 Domains</span>
+                <span>⏱️ Dauer: ~45 Minuten</span>
+            </div>
+        </header>
+
+        <div class="summary-cards">
+            <div class="summary-card">
+                <div class="summary-number clean">4</div>
+                <div class="summary-label">SAUBER</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-number suspicious">2</div>
+                <div class="summary-label">FALSE POSITIVE</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-number confirmed">0</div>
+                <div class="summary-label">CONFIRMED</div>
+            </div>
+            <div class="summary-card">
+                <div class="summary-number" style="color: var(--text);">0</div>
+                <div class="summary-label">INDIKATOREN</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                📋 Analysierte Artikel
+            </h2>
+            <div class="article-list">
+                <div class="article-item">
+                    <div class="article-status-icon clean">✓</div>
+                    <div class="article-info">
+                        <div class="article-domain">welt.de</div>
+                        <div class="article-title">Iran: „Massive Eskalation mit offenem Ausgang“ – Merz stellt sich offen gegen Trumps Krieg</div>
+                        <div class="article-time">27.03.2026 • 20:24 Uhr</div>
+                        <span class="article-status clean">SAUBER</span>
+                        <div class="indicators">Keine Pickover-Indikatoren gefunden</div>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-status-icon clean">✓</div>
+                    <div class="article-info">
+                        <div class="article-domain">welt.de</div>
+                        <div class="article-title">„Digitale Vergewaltigung“: Christian Ulmen äußert sich erstmals ausführlicher</div>
+                        <div class="article-time">27.03.2026 • 20:09 Uhr</div>
+                        <span class="article-status clean">SAUBER</span>
+                        <div class="indicators">Keine Pickover-Indikatoren gefunden</div>
+                    </div>
+                </div>
+
+                <div class="article-item suspicious">
+                    <div class="article-status-icon suspicious">⚠</div>
+                    <div class="article-info">
+                        <div class="article-domain">tagesschau.de</div>
+                        <div class="article-title">Interview zum Iran-Krieg: Warum Trump auf Zeit spielt</div>
+                        <div class="article-time">27.03.2026 • 17:43 Uhr</div>
+                        <span class="article-status suspicious">FALSE POSITIVE</span>
+                        <div class="indicators">Zeitstempel-Inkonsistenz: Video (15:13) vor Artikel (16:43)</div>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-status-icon clean">✓</div>
+                    <div class="article-info">
+                        <div class="article-domain">tagesschau.de</div>
+                        <div class="article-title">Iran-Liveblog: ++ Merz wirft Trump „massive Eskalation" im Krieg vor ++</div>
+                        <div class="article-time">27.03.2026 • 20:33 Uhr</div>
+                        <span class="article-status clean">SAUBER</span>
+                        <div class="indicators">Keine Pickover-Indikatoren gefunden</div>
+                    </div>
+                </div>
+
+                <div class="article-item suspicious">
+                    <div class="article-status-icon suspicious">⚠</div>
+                    <div class="article-info">
+                        <div class="article-domain">spiegel.de</div>
+                        <div class="article-title">SPD-Krise: Juso-Chef Philipp Türmer sieht die Partei auf gefährlichem Weg</div>
+                        <div class="article-time">24.03.2026 • 07:19 Uhr</div>
+                        <span class="article-status suspicious">FALSE POSITIVE</span>
+                        <div class="indicators">Zeitliche Lücke: 4h 51min zwischen Veröffentlichung und Modifikation</div>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-status-icon clean">✓</div>
+                    <div class="article-info">
+                        <div class="article-domain">stern.de</div>
+                        <div class="article-title">Ach Deutsche Bahn, was hat dich bloß so ruiniert?</div>
+                        <div class="article-time">27.03.2026 • 19:54 Uhr</div>
+                        <span class="article-status clean">SAUBER</span>
+                        <div class="indicators">Keine Pickover-Indikatoren gefunden</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                🔍 Auffälligkeiten & Analyse
+            </h2>
+            <div class="findings">
+                <div class="finding-item">
+                    <div class="finding-icon">⚠</div>
+                    <div class="finding-content">
+                        <h4>Zeitstempel-Inkonsistenz (tagesschau.de)</h4>
+                        <p>Video wurde 90 Minuten vor dem Artikel veröffentlicht. Dies ist durch die redaktionelle Arbeitsweise von ARD (TV zuerst, dann Online-Artikel) vollständig erklärbar.</p>
+                    </div>
+                </div>
+                <div class="finding-item">
+                    <div class="finding-icon">⚠</div>
+                    <div class="finding-content">
+                        <h4>Zeitliche Lücke (spiegel.de)</h4>
+                        <p>4 Stunden 51 Minuten zwischen Veröffentlichung und Modifikation. Wahrscheinlich zeitversetzte Publikation oder redaktionelle Nachbearbeitung.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">
+                📊 Statistik
+            </h2>
+            <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem;">
+                <div>
+                    <strong style="color: var(--text-muted);">Überprüfte Domains</strong>
+                    <ul style="list-style: none; margin-top: 0.5rem;">
+                        <li>✓ welt.de (2 Artikel)</li>
+                        <li>✓ tagesschau.de (2 Artikel)</li>
+                        <li>✓ spiegel.de (1 Artikel)</li>
+                        <li>✓ stern.de (1 Artikel)</li>
+                    </ul>
+                </div>
+                <div>
+                    <strong style="color: var(--text-muted);">Ergebnis</strong>
+                    <ul style="list-style: none; margin-top: 0.5rem;">
+                        <li style="color: var(--success);">✓ 4 Artikel SAUBER</li>
+                        <li style="color: var(--warning);">⚠ 2 FALSE POSITIVE</li>
+                        <li style="color: var(--danger);">✗ 0 CONFIRMED FAKE</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>Clifford A. Pickover Puzzle Search • Automatisierte Medienanalyse</p>
+            <p style="font-size: 0.85rem; margin-top: 0.5rem;">Scan ID: 001 • 27. März 2026</p>
+        </footer>
+    </div>
+</body>
+</html>
