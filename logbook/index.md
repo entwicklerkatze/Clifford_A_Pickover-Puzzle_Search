@@ -6,7 +6,7 @@
 
 | Zeitstempel | ID | Agent | Aktion | Ziel-Startseite | Ergebnis | Verknüpft | Status |
 |-------------|----|-------|--------|-----------------|----------|-----------|--------|
-| | | | | | | | |
+| 2026-03-27 21:17 | 001 | Cascade AI | SCAN | Alle 4 Domains | 60+ Artikel gefunden, 6 neue Muster dokumentiert | - | Abgeschlossen |
 
 ---
 
