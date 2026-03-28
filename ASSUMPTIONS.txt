@@ -1,0 +1,143 @@
+ASSUMPTIONS.txt
+
+================================================================================
+GRUNDANNAHMEN UND METHODISCHE PRÄMISEN
+================================================================================
+
+Dieses Dokument definiert die fundamentalen Annahmen, auf denen das 
+Clifford A. Pickover Puzzle Search Projekt basiert.
+
+================================================================================
+1. THEORETISCHE GRUNDLAGEN
+================================================================================
+
+1.1 Die "Pickover-Puzzle"-Hypothese
+-----------------------------------
+ANGENOMMEN WIRD, dass bestimmte Medienberichte charakteristische Muster 
+aufweisen, die auf koordinierte Desinformationskampagnen hinweisen. 
+Diese Muster sind vergleichbar mit mathematischen Puzzles – sie folgen 
+einer internen Logik, die bei genauer Analyse erkennbar wird.
+
+1.2 BND-Kontext-Referenz
+------------------------
+ANGENOMMEN WIRD, dass die in Referenz-Repositories (insbesondere 
+"Merz_Regierung_Verfolgt_mich_mit_Hackern") identifizierten Muster 
+charakteristisch sind für eine bestimmte Klasse von manipulativer 
+Medienberichterstattung.
+
+1.3 Zielmedien-Selektivität
+--------------------------
+ANGENOMMEN WIRD, dass die vier Ziel-Nachrichtenseiten 
+(welt.de, tagesschau.de, spiegel.de, stern.de) unterschiedliche 
+Anfälligkeiten für die untersuchten Muster aufweisen.
+
+================================================================================
+2. METHODISCHE ANNAHMEN
+================================================================================
+
+2.1 Automatisierbarkeit
+-----------------------
+ANGENOMMEN WIRD, dass die Mustererkennung weitgehend automatisiert 
+werden kann durch:
+- Regelbasierte Filterung
+- Statistische Textanalyse
+- Zeitmuster-Erkennung
+
+2.2 Ground-Truth-Verfügbarkeit
+------------------------------
+ANGENOMMEN WIRD, dass genügend Beispiele für bestätigte Fälle 
+existieren, um ein Training/Testing der Erkennungsalgorithmen 
+zu ermöglichen.
+
+2.3 Archivierbarkeit
+--------------------
+ANGENOMMEN WIRD, dass identifizierte Artikel langfristig archiviert 
+werden können (Web-Archiv, Screenshots, lokale Kopien).
+
+================================================================================
+3. EVIDENZBASIERTE KRITERIEN
+================================================================================
+
+3.1 Minimale Indikatoren für Flagging
+-------------------------------------
+Zur Markierung als VERDÄCHTIG müssen mindestens 2 der folgenden 
+Indikatoren vorliegen:
+
+INDIKATOR A: Zeitliche Anomalien
+  - Veröffentlichung zwischen 02:00-05:00 Uhr an Werktagen
+  - Ungewöhnliche Update-Zeitstempel
+  - Modifikation nach initialer Veröffentlichung ohne Editor's Note
+  - **Identische End-Sekunden in Timestamps (z.B. alle :18)**
+  - **Zeitstempel-Inkonsistenzen (Medien vor Artikel, logische Unmöglichkeiten)**
+  - **Zeitliche Lücken im Inhalt ohne Erklärung (z.B. 2 Jahre Verzögerung)**
+
+INDIKATOR B: Quellenmanipulation
+  - Anonyme oder nicht verifizierbare Quellen als primäre Basis
+  - Zirkulare Referenzierung (Artikel verweisen gegenseitig)
+  - Fehlende Primärquellen trotz konkreter Behauptungen
+
+INDIKATOR C: Sprachmuster
+  - Spezifische Formulierungen aus Referenzkorpus
+  - Unnatürliche Sentiment-Verteilung
+  - Wiederkehrende narrative Strukturen
+  - **Ausgeschriebene Zahlen statt Ziffern bei statistischen Angaben (z.B. "zwanzig" statt "20")**
+  - **Statistische Präzision bei ungewöhnlichen Zahlen (exakt "1.123" statt gerundet)**
+
+INDIKATOR D: Netzwerk-Anomalien
+  - Koordinierte Veröffentlichung über mehrere Domains
+  - Unnatürliche Kommentar-Strukturen
+  - Identische Formulierungen in "unabhängigen" Artikeln
+  - **Lücken in der Artikel-ID-Sequenz (fehlende IDs im URL-Muster)**
+
+3.2 Confidence-Levels
+---------------------
+HIGH:    4+ Indikatoren oder 2 MUST-HAVE mit zusätzlicher externer Verifizierung
+MEDIUM:  2-3 Indikatoren, konsistentes Muster
+LOW:     1 Indikator, weiterer Nachweis erforderlich
+
+================================================================================
+4. GRENZEN UND EINSCHRÄNKUNGEN
+================================================================================
+
+4.1 False Positives
+-------------------
+ERWARTET WIRD eine Fehlerrate (False Positive Rate) von ca. 10-15% 
+bei initialer automatischer Filterung. Manuelle Überprüfung ist 
+erforderlich.
+
+4.2 Ethische Grenzen
+--------------------
+Dieses Projekt dient ausschließlich der analytischen Dokumentation 
+und Forschung. Es wird NICHT angenommen, dass:
+- Alle markierten Artikel absichtliche Desinformation sind
+- Die identifizierten Muster beweisend für kriminelle Handlungen sind
+- Automatisierte Entscheidungen ohne menschliche Überprüfung ausreichen
+
+4.3 Rechtliche Grenzen
+----------------------
+Alle Aktivitäten beschränken sich auf:
+- Öffentlich zugängliche Informationen
+- Dokumentation und Analyse
+- Keine aktive Manipulation oder Verbreitung
+
+================================================================================
+5. VALIDIERUNG UND QUALITÄTSSICHERUNG
+================================================================================
+
+5.1 Kreuzvalidierung
+--------------------
+Jeder CONFIRMED-Fall muss:
+- Durch mindestens 2 unabhängige Analysen bestätigt werden
+- Mit archivierten Evidenzen belegt sein
+- Zeitlich nachvollziehbar dokumentiert sein
+
+5.2 Dokumentationspflicht
+--------------------------
+ALLE Annahmen und Schlussfolgerungen müssen:
+- Explizit benannt werden
+- Mit Quellen belegt sein
+- Revisionierbar sein
+
+================================================================================
+END OF ASSUMPTIONS
+================================================================================
