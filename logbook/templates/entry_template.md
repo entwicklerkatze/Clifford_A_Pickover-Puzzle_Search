@@ -2,7 +2,7 @@
 id: ""
 zeitstempel: "YYYY-MM-DD HH:MM UTC"
 agent: ""
-aktionstyp: "SCAN|FILTER|ANALYSIS|DECISION|CORRECTION"
+aktionstyp: "SCAN|ARTICLE_SCAN|FILTER|ANALYSIS|DECISION|CORRECTION"
 ---
 
 # Log-Eintrag: [Titel]
@@ -18,61 +18,110 @@ aktionstyp: "SCAN|FILTER|ANALYSIS|DECISION|CORRECTION"
 
 ## Durchgeführte Aktion
 
-### [Aktion beschreiben]
+### Schritt 1: Startseiten-Scan
 
-**Detaillierte Schritte:**
-1. 
-2. 
-3. 
+**Durchgeführt:** [Zeitstempel]
 
-**Verwendete Tools/Methoden:**
-- 
+**Evidenz gesichert:**
+- [ ] Screenshot Startseite
+- [ ] HTML-Snapshot
+- [ ] SHA256-Hash
 
-## Evidenz
+### Schritt 2: Artikel-Extraktion
 
-### Screenshots
-- [ ] `screenshot_YYYY-MM-DD_HHMM_[domain].png`
-
-### HTML-Snapshots
-- [ ] `snapshot_YYYY-MM-DD_HHMM_[domain].html`
-- **SHA256:** `...`
-
-### Artikel-URLs (nur Startseite)
+**Gefundene Artikel-URLs auf Startseite:**
 ```
-- URL 1
-- URL 2
-- ...
+1. [URL 1] - [Titel]
+2. [URL 2] - [Titel]
+3. ...
 ```
 
-## Ergebnis
+**Anzahl Artikel:** [N]
 
-### Gefundene Artikel: [N]
+### Schritt 3: Einzelartikel-Analyse (FÜR JEDEN ARTIKEL)
 
-| # | URL | Titel | Status |
-|---|-----|-------|--------|
-| 1 | | | UNGEPRÜFT |
-| 2 | | | UNGEPRÜFT |
+**Artikel #[X]:** [URL]
 
-### Identifizierte Muster
+**Durchgeführte Aktionen:**
+- [ ] Artikel aufgerufen
+- [ ] Screenshot gespeichert
+- [ ] HTML-Snapshot gespeichert
+- [ ] Zeitstempel analysiert (Meta-Tags, JSON-LD)
+- [ ] Pickover-Filter angewendet
+
+**Gefundene Indikatoren:**
 - [ ] Keine
 - [ ] Indikator A (Zeitlich)
 - [ ] Indikator B (Quellen)
 - [ ] Indikator C (Sprache)
 - [ ] Indikator D (Netzwerk)
 
-## Entscheidung
+**Artikel-Status:**
+- [ ] SAUBER
+- [ ] VERDÄCHTIG → Eintrag #[ID]
+- [ ] CONFIRMED → Eintrag #[ID]
 
-**Status:**
-- [ ] SAUBER – Keine Auffälligkeiten
-- [ ] VERDÄCHTIG – Weitere Analyse erforderlich → Eintrag #___
-- [ ] CONFIRMED – FAKE-NEWS identifiziert → Eintrag #___
+## Gesamtergebnis
+
+### Übersicht aller geprüften Artikel
+
+| # | Artikel-URL | Titel | Status | Verknüpfter Eintrag |
+|---|-------------|-------|--------|---------------------|
+| 1 | | | UNGEPRÜFT/SAUBER/VERDÄCHTIG/CONFIRMED | |
+| 2 | | | | |
+
+### Identifizierte Verdächtige/CONFIRMED Fälle
+
+**Anzahl VERDÄCHTIG:** [X]
+**Anzahl CONFIRMED:** [Y]
+
+## Evidenz
+
+### Screenshots
+**Startseite:**
+- [ ] `screenshot_YYYY-MM-DD_HHMM_[domain]_startseite.png`
+
+**Einzelne Artikel:**
+- [ ] `screenshot_YYYY-MM-DD_HHMM_[domain]_artikel_[X].png`
+
+### HTML-Snapshots
+**Startseite:**
+- [ ] `snapshot_YYYY-MM-DD_HHMM_[domain]_startseite.html`
+- **SHA256:** `...`
+
+**Einzelne Artikel:**
+- [ ] `snapshot_YYYY-MM-DD_HHMM_[domain]_artikel_[X].html`
+- **SHA256:** `...`
+
+### Timestamp-Analysen
+```json
+{
+  "article_url": "...",
+  "timestamps_found": {
+    "published": "...",
+    "modified": "...",
+    "audio_upload": "..."
+  },
+  "anomalies": []
+}
+```
+
+## Entscheidung (Gesamt)
+
+**Scan-Ergebnis:**
+- [ ] KEINE VERDÄCHTIGEN ARTIKEL GEFUNDEN
+- [ ] [X] VERDÄCHTIGE ARTIKEL IDENTIFIZIERT → Folge-Einträge erstellt
+- [ ] [Y] CONFIRMED FAKE-NEWS → Analyse-Ordner erstellt
 
 ## Nächste Schritte
 
-- [ ] 
+- [ ] Verdächtige Artikel detailliert analysieren
+- [ ] Tiefe Analyse für CONFIRMED Fälle durchführen
+- [ ] Tracking-Tabelle aktualisieren
+- [ ] Evidence sammeln
 
 ## Kreuzreferenzen
 
 - Verwandt mit: #
-- Follow-up zu: #
+- Folge-Einträge (Artikel-Analysen): #
 - Korrigiert: #
