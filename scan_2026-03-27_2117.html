@@ -313,19 +313,19 @@
             <h1>Scan Report - 27. März 2026</h1>
             <div class="scan-meta">
                 <span>🕐 21:17 Uhr</span>
-                <span>📄 6 Artikel analysiert</span>
+                <span>📄 10 Artikel analysiert</span>
                 <span>🌐 4 Domains</span>
-                <span>⏱️ Dauer: ~45 Minuten</span>
+                <span>⏱️ Dauer: ~90 Minuten</span>
             </div>
         </header>
 
         <div class="summary-cards">
             <div class="summary-card">
-                <div class="summary-number clean">4</div>
+                <div class="summary-number clean">7</div>
                 <div class="summary-label">SAUBER</div>
             </div>
             <div class="summary-card">
-                <div class="summary-number suspicious">2</div>
+                <div class="summary-number suspicious">3</div>
                 <div class="summary-label">FALSE POSITIVE</div>
             </div>
             <div class="summary-card">
@@ -333,8 +333,8 @@
                 <div class="summary-label">CONFIRMED</div>
             </div>
             <div class="summary-card">
-                <div class="summary-number" style="color: var(--text);">0</div>
-                <div class="summary-label">INDIKATOREN</div>
+                <div class="summary-number" style="color: var(--text);">10</div>
+                <div class="summary-label">ARTIKEL</div>
             </div>
         </div>
 
@@ -365,6 +365,28 @@
                     </div>
                 </div>
 
+                <div class="article-item">
+                    <div class="article-status-icon clean">✓</div>
+                    <div class="article-info">
+                        <div class="article-domain">welt.de</div>
+                        <div class="article-title">Reformen: Merz kündigt Paket für den Sommer an – Klingbeil lehnt Mehrwertsteuererhöhung ab</div>
+                        <div class="article-time">27.03.2026 • 20:17 Uhr</div>
+                        <span class="article-status clean">SAUBER</span>
+                        <div class="indicators">Keine Pickover-Indikatoren gefunden</div>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-status-icon clean">✓</div>
+                    <div class="article-info">
+                        <div class="article-domain">welt.de</div>
+                        <div class="article-title">Bilanz: Miese Pünktlichkeit und Milliardenverlust – Boni gibt es trotzdem für die Bahn-Vorstände</div>
+                        <div class="article-time">27.03.2026 • 17:32 Uhr</div>
+                        <span class="article-status clean">SAUBER</span>
+                        <div class="indicators">Keine Pickover-Indikatoren gefunden</div>
+                    </div>
+                </div>
+
                 <div class="article-item suspicious">
                     <div class="article-status-icon suspicious">⚠</div>
                     <div class="article-info">
@@ -373,6 +395,17 @@
                         <div class="article-time">27.03.2026 • 17:43 Uhr</div>
                         <span class="article-status suspicious">FALSE POSITIVE</span>
                         <div class="indicators">Zeitstempel-Inkonsistenz: Video (15:13) vor Artikel (16:43)</div>
+                    </div>
+                </div>
+
+                <div class="article-item suspicious">
+                    <div class="article-status-icon suspicious">⚠</div>
+                    <div class="article-info">
+                        <div class="article-domain">tagesschau.de</div>
+                        <div class="article-title">Krise am Himmel: Iran-Krieg stellt Airlines vor Probleme</div>
+                        <div class="article-time">27.03.2026 • 12:24 Uhr</div>
+                        <span class="article-status suspicious">FALSE POSITIVE</span>
+                        <div class="indicators">Zeitstempel-Inkonsistenz: Audio (Vortag) vor Artikel</div>
                     </div>
                 </div>
 
@@ -395,6 +428,17 @@
                         <div class="article-time">24.03.2026 • 07:19 Uhr</div>
                         <span class="article-status suspicious">FALSE POSITIVE</span>
                         <div class="indicators">Zeitliche Lücke: 4h 51min zwischen Veröffentlichung und Modifikation</div>
+                    </div>
+                </div>
+
+                <div class="article-item">
+                    <div class="article-status-icon clean">✓</div>
+                    <div class="article-info">
+                        <div class="article-domain">spiegel.de</div>
+                        <div class="article-title">Ukraine-Krieg: Rubio wirft Selenskyj Lügen über Sicherheitsabkommen vor</div>
+                        <div class="article-time">27.03.2026 • 22:11 Uhr</div>
+                        <span class="article-status clean">SAUBER</span>
+                        <div class="indicators">Keine Pickover-Indikatoren gefunden</div>
                     </div>
                 </div>
 
@@ -430,6 +474,13 @@
                         <p>4 Stunden 51 Minuten zwischen Veröffentlichung und Modifikation. Wahrscheinlich zeitversetzte Publikation oder redaktionelle Nachbearbeitung.</p>
                     </div>
                 </div>
+                <div class="finding-item">
+                    <div class="finding-icon">⚠</div>
+                    <div class="finding-content">
+                        <h4>Zeitstempel-Inkonsistenz (tagesschau.de Airlines)</h4>
+                        <p>Audio wurde bereits am Vortag (26.03.) um 13:55 UTC veröffentlicht, während der dazugehörige Artikel erst am nächsten Tag (27.03.) um 12:24 UTC erschien. 22 Stunden Differenz durch redaktionellen Workflow erklärbar (Podcast zuerst, dann Online-Artikel).</p>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -441,17 +492,17 @@
                 <div>
                     <strong style="color: var(--text-muted);">Überprüfte Domains</strong>
                     <ul style="list-style: none; margin-top: 0.5rem;">
-                        <li>✓ welt.de (2 Artikel)</li>
-                        <li>✓ tagesschau.de (2 Artikel)</li>
-                        <li>✓ spiegel.de (1 Artikel)</li>
+                        <li>✓ welt.de (4 Artikel)</li>
+                        <li>✓ tagesschau.de (3 Artikel)</li>
+                        <li>✓ spiegel.de (2 Artikel)</li>
                         <li>✓ stern.de (1 Artikel)</li>
                     </ul>
                 </div>
                 <div>
                     <strong style="color: var(--text-muted);">Ergebnis</strong>
                     <ul style="list-style: none; margin-top: 0.5rem;">
-                        <li style="color: var(--success);">✓ 4 Artikel SAUBER</li>
-                        <li style="color: var(--warning);">⚠ 2 FALSE POSITIVE</li>
+                        <li style="color: var(--success);">✓ 7 Artikel SAUBER</li>
+                        <li style="color: var(--warning);">⚠ 3 FALSE POSITIVE</li>
                         <li style="color: var(--danger);">✗ 0 CONFIRMED FAKE</li>
                     </ul>
                 </div>
