@@ -21,6 +21,32 @@
    - Erstellung tiefer Analysen in Unterordnern
    - Verknüpfung von verwandten Artikeln
 
+### Technische Durchführung (Web-Scraping)
+
+**Cookie-Consent und Datenschutz-Dialoge:**
+
+Beim Aufruf jeder Webseite (Startseite UND einzelne Artikel) MUSS der Cookie-Consent-Dialog und/oder Datenschutz-Hinweis sofort akzeptiert werden:
+
+- **Immer akzeptieren mit:**
+  - "Alle akzeptieren"
+  - "Akzeptieren"
+  - "Annehmen"  
+  - "Zustimmen"
+  - "Alles akzeptieren"
+  - "Erlauben"
+  - "Weiter"
+  - Oder ähnliche Variante des Haupt-Akzeptieren-Buttons
+
+- **NIE ablehnen oder individualisieren**
+- **NIE auf "Nur notwendige Cookies" klicken**
+- **Ziel:** Vollständiger Zugriff auf alle Seiteninhalte ohne Einschränkungen
+
+**Beispiel-Workflow:**
+1. URL aufrufen
+2. Sofort auf Cookie-Banner reagieren (falls vorhanden)
+3. Button mit "Alle akzeptieren" / "Akzeptieren" etc. klicken
+4. Erst danach Screenshot und HTML-Snapshot erstellen
+
 ### Workflow bei Identifikation
 
 ```
